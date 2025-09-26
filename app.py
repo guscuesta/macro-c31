@@ -8,8 +8,6 @@ import streamlit as st
 st.set_page_config(page_title="Simulador Consumo (Blanchard)", layout="wide")
 
 st.title("Función de consumo: C = c₀ + c₁·(Y − T)")
-st.caption("Eje X = renta disponible (Y − T).)
-
 # ----- Panel lateral (parámetros) -----
 with st.sidebar:
     st.header("Parámetros")
@@ -63,4 +61,5 @@ with col_info:
 
 st.subheader("Tabla (primeras 15 filas)")
 st.dataframe(df.head(15), use_container_width=True)
+
 
