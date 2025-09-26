@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
-st.set_page_config(page_title="Simulador Consumo (Blanchard)", layout="wide")
+st.set_page_config(page_title="Simulador Consumo", layout="wide")
 
 st.title("Función de consumo: C = c₀ + c₁·(Y − T)")
 # ----- Panel lateral (parámetros) -----
@@ -49,7 +49,7 @@ with col_plot:
 with col_info:
     st.subheader("Parámetros actuales")
     st.write(f"**c₀** = {c0:,.2f} · **c₁** = {c1:,.2f} · **T** = {T:,.2f}")
-    st.write(f"**YD** = {YD:,.2f} · **C** = {C:,.2f}")
+  
     # Descarga CSV
     st.subheader("Descargar datos")
     st.download_button(
@@ -61,6 +61,7 @@ with col_info:
 
 st.subheader("Tabla (primeras 15 filas)")
 st.dataframe(df.head(15), use_container_width=True)
+
 
 
 
