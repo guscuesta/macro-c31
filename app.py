@@ -8,7 +8,7 @@ import streamlit as st
 st.set_page_config(page_title="Simulador Consumo (Blanchard)", layout="wide")
 
 st.title("Función de consumo: C = c₀ + c₁·(Y − T)")
-st.caption("Eje X = renta disponible (Y − T). Se muestra la recta de 45°: C = YD.")
+st.caption("Eje X = renta disponible (Y − T).)
 
 # ----- Panel lateral (parámetros) -----
 with st.sidebar:
@@ -40,10 +40,7 @@ with col_plot:
     fig, ax = plt.subplots(figsize=(7, 4.5))
     # Curva de consumo vs YD (NO fijar colores explícitos)
     ax.plot(df["YD"], df["C"], label="C = c₀ + c₁·(Y − T)", linewidth=2)
-    # Recta de 45°: C = YD
-    x45 = np.linspace(X_MIN, X_MAX, 100)
-    ax.plot(x45, x45, linestyle="--", label="C = YD (45°)")
-    # Ejes fijos
+       # Ejes fijos
     ax.set_xlim(X_MIN, X_MAX)
     ax.set_ylim(Y_MIN, Y_MAX)
     ax.set_xlabel("Renta disponible (Y − T)")
@@ -54,8 +51,7 @@ with col_plot:
 with col_info:
     st.subheader("Parámetros actuales")
     st.write(f"**c₀** = {c0:,.2f} · **c₁** = {c1:,.2f} · **T** = {T:,.2f}")
-    st.write(f"**∂C/∂Y = c₁ = {c1:,.2f}**,  **∂C/∂T = −c₁ = {-c1:,.2f}**")
-
+    
     # Descarga CSV
     st.subheader("Descargar datos")
     st.download_button(
@@ -67,3 +63,4 @@ with col_info:
 
 st.subheader("Tabla (primeras 15 filas)")
 st.dataframe(df.head(15), use_container_width=True)
+
